@@ -4,11 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Menu extends JPanel {
+    public JFrame mainFrame = GameController.getMainWindow();
     public Menu(){
         Game game = new Game();
 
         setBackground(Consts.gray);
-        setVisible(false);
+        setVisible(true);
         setPreferredSize(new Dimension(300, 200));
 
         JLabel title = new JLabel("Pong Game");
@@ -20,9 +21,9 @@ public class Menu extends JPanel {
         startButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                PongWindow pongWindow = new PongWindow();
-
+                mainFrame.getContentPane().remove(GameController.getPanel("menu"));
+                mainFrame.getContentPane().add(GameController.getPanel("game"));
+                mainFrame.validate();
             }
         });
 
