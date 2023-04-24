@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Menu extends JPanel {
-    public JFrame mainFrame = GameController.getMainWindow();
     public Menu(){
         Game game = new Game();
 
@@ -21,6 +20,7 @@ public class Menu extends JPanel {
         startButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                JFrame mainFrame = GameController.getMainWindow();
                 mainFrame.getContentPane().remove(GameController.getPanel("menu"));
                 mainFrame.getContentPane().add(GameController.getPanel("game"));
                 mainFrame.validate();
