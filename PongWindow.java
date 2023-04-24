@@ -8,7 +8,7 @@ public class PongWindow extends JFrame {
     public PongWindow() {
         GameController.addPanel(menu,"menu");
         GameController.addPanel(game,"game");
-        menu.mainFrame = this;
+        GameController.setMainWindow(this);
         setTitle("Pong");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setBounds(300, 200, Consts.WIDTH / 2, Consts.HEIGHT / 2);
@@ -19,9 +19,5 @@ public class PongWindow extends JFrame {
 
     }
 
-    public void startGame() {
-        getContentPane().remove(menu);
-        getContentPane().add(game);
-        validate();
-    }
+
 }
